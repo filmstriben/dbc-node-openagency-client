@@ -5,10 +5,20 @@ import * as BaseSoapClient from 'dbc-node-basesoap-client';
 let wsdl = null;
 let defaults = {};
 
-export const METHODS = {};
+export function getOpenAgency(values) {
+  let params = {
+    agencyId: values.id
+  };
+  let openagency = BaseSoapClient.client(wsdl, defaults);
+  return openagency.request('findLibrary', params, null, true);
+}
+
+export const METHODS = {
+  getOpenAgency: getOpenAgency
+};
 
 /**
- * Setting the necessary paramerters for the client to be usable.
+ * Setting the necessary parameters for the client to be usable.
  * The wsdl is only set if wsdl is null to allow setting it through
  * environment variables.
  *
@@ -19,10 +29,6 @@ export function init(config) {
   if (!wsdl) {
     wsdl = config.wsdl;
   }
-  defaults = {
-    agency: config.agency,
-    profile: config.profile
-  };
 
   return METHODS;
 }
