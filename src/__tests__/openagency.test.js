@@ -1,6 +1,5 @@
 'use strict';
 
-import {assert, assertEquals} from 'chai';
 import * as OpenAgency from '../client.js';
 
 describe('Test OpenAgency Client', () => {
@@ -18,7 +17,9 @@ describe('Test OpenAgency Client', () => {
       id: '715100'
     });
 
+    /* eslint-disable no-unused-vars */
     result.then(function(searchResult) {
+    /* eslint-enable no-unused-vars */
       // Mostly used for testing during dev, not actually a unit test
       done();
     });
