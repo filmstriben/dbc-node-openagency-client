@@ -5,16 +5,32 @@ import * as BaseSoapClient from 'dbc-node-basesoap-client';
 let wsdl = null;
 let defaults = {};
 
-export function getOpenAgency(values) {
-  let params = {
-    agencyId: values.id
-  };
+function makeFindLibraryRequest (params) {
   let openagency = BaseSoapClient.client(wsdl, defaults);
   return openagency.request('findLibrary', params, null, true);
 }
 
+export function getOpenAgency(values) {
+  let params = {
+    agencyId: values.id
+  };
+
+  return makeFindLibraryRequest(params)
+}
+
+export function searchOpenAgency(values) {
+  let params = {
+    anyField: '?' + values.query + '?',
+    libraryType: 'Folkebibliotek',
+    pickupAllowed: 1
+  };
+
+  return makeFindLibraryRequest(params)
+}
+
 export const METHODS = {
-  getOpenAgency: getOpenAgency
+  getOpenAgency: getOpenAgency,
+  searchOpenAgency: searchOpenAgency
 };
 
 /**
