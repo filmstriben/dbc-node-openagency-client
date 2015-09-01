@@ -15,7 +15,7 @@ export function getOpenAgency(values) {
     agencyId: values.id
   };
 
-  return makeFindLibraryRequest(params)
+  return makeFindLibraryRequest(params);
 }
 
 export function searchOpenAgency(values) {
@@ -25,7 +25,7 @@ export function searchOpenAgency(values) {
     pickupAllowed: 1
   };
 
-  return makeFindLibraryRequest(params)
+  return makeFindLibraryRequest(params);
 }
 
 export const METHODS = {
