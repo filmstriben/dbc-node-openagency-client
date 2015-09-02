@@ -3,11 +3,10 @@
 import * as BaseSoapClient from 'dbc-node-basesoap-client';
 
 let wsdl = null;
-let defaults = {};
 
 function makeFindLibraryRequest (params) {
-  let openagency = BaseSoapClient.client(wsdl, defaults);
-  return openagency.request('findLibrary', params, null, true);
+  let openagency = BaseSoapClient.client(wsdl, {});
+  return openagency.request('findLibrary', params, {}, true);
 }
 
 export function getOpenAgency(values) {

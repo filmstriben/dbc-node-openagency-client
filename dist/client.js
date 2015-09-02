@@ -14,11 +14,10 @@ var _dbcNodeBasesoapClient = require('dbc-node-basesoap-client');
 var BaseSoapClient = _interopRequireWildcard(_dbcNodeBasesoapClient);
 
 var wsdl = null;
-var defaults = {};
 
 function makeFindLibraryRequest(params) {
-  var openagency = BaseSoapClient.client(wsdl, defaults);
-  return openagency.request('findLibrary', params, null, true);
+  var openagency = BaseSoapClient.client(wsdl, {});
+  return openagency.request('findLibrary', params, {}, true);
 }
 
 function getOpenAgency(values) {
