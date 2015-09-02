@@ -9,7 +9,7 @@ describe('Test OpenAgency Client', () => {
     setTimeout(done, timeout);
 
     const config = {
-      wsdl: 'http://openagency.addi.dk/2.22/openagency.wsdl'
+      wsdl: 'http://openagency.addi.dk/2.22/?wsdl/openagency.wsdl'
     };
 
     OpenAgency.init(config);
