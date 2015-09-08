@@ -21,11 +21,13 @@ function makeFindLibraryRequest(params) {
 }
 
 function getOpenAgency(values) {
-  var params = {
-    agencyId: values.id
-  };
+  var openagency = BaseSoapClient.client(wsdl, {});
 
-  return makeFindLibraryRequest(params);
+  return values.id.map(function (val) {
+    return openagency.request('findLibrary', {
+      agencyId: val
+    }, {}, true);
+  });
 }
 
 function searchOpenAgency(values) {

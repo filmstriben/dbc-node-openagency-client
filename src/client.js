@@ -10,11 +10,13 @@ function makeFindLibraryRequest (params) {
 }
 
 export function getOpenAgency(values) {
-  let params = {
-    agencyId: values.id
-  };
+  let openagency = BaseSoapClient.client(wsdl, {});
 
-  return makeFindLibraryRequest(params);
+  return values.id.map((val) => {
+    return openagency.request('findLibrary', {
+      agencyId: val
+    }, {}, true);
+  });
 }
 
 export function searchOpenAgency(values) {

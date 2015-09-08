@@ -36,16 +36,14 @@ describe('Test OpenAgency Client', () => {
     };
 
     OpenAgency.init(config);
-    let result = OpenAgency.getOpenAgency({
-      id: '710120'
+
+
+    let result = OpenAgency.getOpenAgency({ // eslint-disable-line no-unused-vars
+      id: [
+        '710120'
+      ]
     });
 
     done();
-
-    /* eslint-disable no-unused-vars */
-    result.then(function(searchResult) {
-      /* eslint-enable no-unused-vars */
-      // Mostly used for testing during dev, not actually a unit test
-    });
   });
 });
