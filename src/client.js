@@ -36,7 +36,7 @@ export function searchOpenAgency(values) {
 
 export function getNameLibraryResult(values){
   const params = {
-    libraryType: values.libraryType//Folkebibliotek
+    libraryType: values.libraryType
   }
   return sendNameLibraryRequest(params);
 }
