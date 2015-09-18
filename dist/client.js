@@ -5,6 +5,7 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports.getOpenAgency = getOpenAgency;
 exports.searchOpenAgency = searchOpenAgency;
+exports.getNameLibrary = getNameLibrary;
 exports.init = init;
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
@@ -40,9 +41,18 @@ function searchOpenAgency(values) {
   return makeFindLibraryRequest(params);
 }
 
+function getNameLibrary(values){
+  let openagency = BaseSoapClient.client(wsdl, {});
+
+  return openagency.request('nameList', {
+    libraryType: values.libraryType
+  }, {}, true);
+}
+
 var METHODS = {
   getOpenAgency: getOpenAgency,
-  searchOpenAgency: searchOpenAgency
+  searchOpenAgency: searchOpenAgency,
+  getNameLibrary: getNameLibrary
 };
 
 exports.METHODS = METHODS;

@@ -9,11 +9,6 @@ function makeFindLibraryRequest (params) {
   return openagency.request('findLibrary', params, {}, true);
 }
 
-function sendNameLibraryRequest(params) {
-  let openagency = BaseSoapClient.client(wsdl, {});
-  return openagency.request('nameList', params, {}, true);
-}
-
 export function getOpenAgency(values) {
   let openagency = BaseSoapClient.client(wsdl, {});
 
@@ -34,17 +29,17 @@ export function searchOpenAgency(values) {
   return makeFindLibraryRequest(params);
 }
 
-export function getNameLibraryResult(values){
-  const params = {
+export function getNameLibrary(values){
+  let openagency = BaseSoapClient.client(wsdl, {});
+  return openagency.request('nameList', {
     libraryType: values.libraryType
-  }
-  return sendNameLibraryRequest(params);
+  }, {}, true);
 }
 
 export const METHODS = {
   getOpenAgency: getOpenAgency,
   searchOpenAgency: searchOpenAgency,
-  getNameLibraryResult: getNameLibraryResult
+  getNameLibrary: getNameLibrary
 };
 
 /**

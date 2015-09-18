@@ -57,7 +57,7 @@ describe('Test OpenAgency Client', () => {
     };
 
     OpenAgency.init(config);
-    let result = OpenAgency.getNameLibraryResult({
+    let result = OpenAgency.getNameLibrary({
       libraryType: 'Folkebibliotek'
     });
 
