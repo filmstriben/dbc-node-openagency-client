@@ -29,9 +29,17 @@ export function searchOpenAgency(values) {
   return makeFindLibraryRequest(params);
 }
 
+export function getNameLibrary(values){
+  let openagency = BaseSoapClient.client(wsdl, {});
+  return openagency.request('nameList', {
+    libraryType: values.libraryType
+  }, {}, true);
+}
+
 export const METHODS = {
   getOpenAgency: getOpenAgency,
-  searchOpenAgency: searchOpenAgency
+  searchOpenAgency: searchOpenAgency,
+  getNameLibrary: getNameLibrary
 };
 
 /**
