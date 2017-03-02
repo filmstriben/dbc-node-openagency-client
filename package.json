@@ -1,0 +1,42 @@
+{
+  "name": "dbc-node-openagency-client",
+  "version": "0.0.1",
+  "description": "Client for dbc openagency webservice",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run cleardest && babel ./src -d dist --ignore __tests__",
+    "cleardest": "rm -rf ./dist",
+    "lint": "eslint ./src",
+    "lint:checkstyle": "eslint ./src  -o report.xml -f checkstyle",
+    "reinstall": "rm -r node_modules && npm install",
+    "test:watch": "mocha --compilers js:babel/register src/**/__tests__/*.test.js -w",
+    "test": "mocha --compilers js:babel/register src/__tests__/*.test.js -R mocha-jenkins-reporter",
+    "watch": "npm run cleardest && babel ./src --watch -d dist --ignore __tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBCDK/dbc-node-openagency-client.git"
+  },
+  "keywords": [
+    "dbc",
+    "openagency"
+  ],
+  "author": "dbcdk",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/DBCDK/dbc-node-openagency-client/issues"
+  },
+  "homepage": "https://github.com/DBCDK/dbc-node-openagency-client#readme",
+  "devDependencies": {
+    "babel": "^5.8.20",
+    "babel-eslint": "^4.0.5",
+    "cache-manager": "^0.18.0",
+    "chai": "^3.2.0",
+    "eslint": "^1.0.0",
+    "mocha": "^2.2.5",
+    "mocha-jenkins-reporter": "^0.1.9"
+  },
+  "dependencies": {
+    "dbc-node-basesoap-client": "git+https://github.com/DBCDK/dbc-node-basesoap-client#stable_dist"
+  }
+}
